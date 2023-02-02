@@ -1,0 +1,36 @@
+<html>  
+    <head>  
+        <title>Basic EDA</title>  
+    </head> 
+<body>
+    <h2> Select Column for peak fitting</h2>
+    <h3>Please enter the starting point as well as end point </h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <b><li>{{ message }}</li></b>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div>
+        <br>    
+        <label for="Column">Select column of numeric only:</label><form action = "/peak" method = "post" >
+            Column:<select name= Column method="GET">
+                {% for Column in col %}
+                <option value= "{{Column}}" SELECTED>{{Column}}</option>
+                {% endfor %}
+        </select><br>  
+    <br><label for="StartingPoint">Select Starting Point. Min Value is 0</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         Starting Point:&nbsp;&nbsp; <input type="text" name="StartingPoint"> <br>             
+        <br><label for="EndingPoint">Select Ending Point. Max Value is {{mrang}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="EndingPoint">EndingPoint:</label>&nbsp;&nbsp;<input type="text" name="EndingPoint">
+        <input type="submit" value="Proceed">
+    </form>
+</div> 
+    <div class="frame">
+        {% include 'basic_plot.html' %}
+        </div>
+</body>  
+</html>

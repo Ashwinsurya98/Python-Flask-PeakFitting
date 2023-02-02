@@ -1,0 +1,28 @@
+<html>  
+    <head>  
+        <title>Peak View</title>  
+    </head> 
+<body>
+    <h2> Select Peak Index which you want to fit</h2>
+        <h3>Please enter the red highlighted index </h3>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <b><li>{{ message }}</li></b>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div>
+        <form action = "/peak_index" method = "post" >
+            <br><label for="index">Index range should from 1 to  {{ind_range}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		Index: <input type="text"  name="index">
+        <input type="submit" value="Proceed">
+    </form>
+</div> 
+    <div class="frame">
+        {% include 'peak_plot.html' %}
+        </div>
+</body>  
+</html>

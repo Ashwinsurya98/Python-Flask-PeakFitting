@@ -1,0 +1,15 @@
+<html>  
+    <head>  
+        <title>Peak Fit</title>  
+    </head> 
+<body>
+    <h2> For Selected Column & Range Peak fit has been done</h2>
+    <h3>Please download the csv & close the window </h3>
+    <a class="btn btn-success" href="{{url_for('download')}}">Download</a>
+    <form action = "/repeat" method = "get" >
+    To try for other columns:&nbsp;&nbsp;<input type="submit" value="Proceed">
+    <div class="frame">
+        {% include 'peakfit_plot.html' %}
+        </div>
+</body>  
+</html>
